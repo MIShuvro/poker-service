@@ -7,7 +7,6 @@ import { HttpExceptionFilter } from '@common/filters/http-exception.filter';
 import * as morgan from 'morgan';
 
 async function setupSwagger(app, port: number) {
-
   let swaggerDocPath = '/api-doc';
   let { SWAGGER_USERNAME, SWAGGER_PASSWORD } = process.env;
 
@@ -19,9 +18,16 @@ async function setupSwagger(app, port: number) {
       { type: 'apiKey', name: 'Authorization', in: 'header', scheme: 'bearer', bearerFormat: 'Bearer' },
       'auth'
     )
-    .addApiKey({
-      type: 'apiKey', name: 'Authorization', in: 'header', scheme: 'bearer', bearerFormat: 'Bearer'
-    }, 'studio-server-auth')
+    .addApiKey(
+      {
+        type: 'apiKey',
+        name: 'Authorization',
+        in: 'header',
+        scheme: 'bearer',
+        bearerFormat: 'Bearer',
+      },
+      'studio-server-auth'
+    )
     .addServer(`http://localhost:${port}/`, 'localhost')
     .build();
 
@@ -30,12 +36,12 @@ async function setupSwagger(app, port: number) {
     [swaggerDocPath, swaggerDocPath + '-json'],
     basicAuth({
       challenge: true,
-      users: { [SWAGGER_USERNAME]: SWAGGER_PASSWORD }
+      users: { [SWAGGER_USERNAME]: SWAGGER_PASSWORD },
     })
   );
 
   SwaggerModule.setup(swaggerDocPath, app, document, {
-    swaggerOptions: { persistAuthorization: true, ignoreGlobalPrefix: true }
+    swaggerOptions: { persistAuthorization: true, ignoreGlobalPrefix: true },
   });
 }
 
@@ -54,7 +60,7 @@ async function bootstrap() {
 
   app.useGlobalPipes(
     new ValidationPipe({
-      transform: true
+      transform: true,
       // transformOptions: {
       //   enableImplicitConversion: true,
       // },

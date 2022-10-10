@@ -27,11 +27,9 @@ import { ConfigService } from '@nestjs/config';
         // }
 
         return dataSource;
-      }
-    }
-
+      },
+    },
   ],
-  exports: [DataSource]
+  exports: [DataSource],
 })
-export class DatabaseModule {
-}
+export class DatabaseModule {}
