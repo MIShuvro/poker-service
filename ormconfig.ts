@@ -1,11 +1,9 @@
-import { DataSource } from 'typeorm';
 
+import { DataSource } from 'typeorm';
 console.log(' process.env.ENV_PATH ', process.env.ENV_PATH);
 require('dotenv').config({
   path: process.env.ENV_PATH
 });
-console.log('driver ', process.env.DB_DRIVER);
-
 const dataSource = new DataSource({
   type: process.env.DB_DRIVER as any,
   host: process.env.DB_HOST,

@@ -4,12 +4,10 @@ import { IndexModule } from './index/index.module';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from '@common/database/database.module';
 import { PokerModule } from './poker/poker.module';
+import { AppConfigModule } from 'src/common/app-config/app-config.module';
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      envFilePath: '.env',
-      isGlobal: true,
-    }),
+    AppConfigModule,
     IndexModule,
     PokerModule,
   ],

@@ -51,7 +51,7 @@ async function setupSwagger(app, port: number) {
 
 async function bootstrap() {
   const app = await NestFactory.create(ApiModule);
-  let PORT = +process.env.PORT || 3000;
+  let PORT = +process.env.PORT || 8080;
   await setupSwagger(app, PORT);
   app.enableCors();
   app.useGlobalFilters(new HttpExceptionFilter());
