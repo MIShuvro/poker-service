@@ -6,11 +6,7 @@ import { DatabaseModule } from '@common/database/database.module';
 import { PokerModule } from './poker/poker.module';
 import { AppConfigModule } from 'src/common/app-config/app-config.module';
 @Module({
-  imports: [
-    AppConfigModule,
-    IndexModule,
-    PokerModule,
-  ],
+  imports: [AppConfigModule, IndexModule, RabbitMQModule, PokerModule],
   controllers: [],
   providers: [],
 })

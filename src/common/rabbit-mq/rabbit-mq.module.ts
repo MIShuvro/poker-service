@@ -13,11 +13,11 @@ import { AppConfigService } from '../app-config/service/app-config.service';
         return {
           uri: AppConfigService.appConfig.RABBIT_MQ_URL,
           connectionInitOptions: { wait: false },
-        }
+        };
       },
     }),
   ],
   providers: [RabbitMQService],
   exports: [RabbitMQService],
 })
-export class RabbitMQModule { }
+export class RabbitMQModule {}
