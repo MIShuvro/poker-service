@@ -1,6 +1,5 @@
 
 import { DataSource } from 'typeorm';
-console.log(' process.env.ENV_PATH ', process.env.ENV_PATH);
 require('dotenv').config({
   path: process.env.ENV_PATH
 });

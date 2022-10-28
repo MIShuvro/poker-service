@@ -16,10 +16,15 @@ export class AppConfigService {
       RABBIT_MQ_POCKER_EXCHANGE: this.configService.get('RABBIT_MQ_POCKER_EXCHANGE'),
       RABBIT_MQ_POCKER_ROUTING_KEY: this.configService.get('RABBIT_MQ_POCKER_ROUTING_KEY'),
       RABBIT_MQ_POCKER_QUEUE: this.configService.get('RABBIT_MQ_POCKER_QUEUE'),
-      SMTP_HOST: this.configService.get('SMTP_HOST'),
-      SMTP_PORT: this.configService.get('SMTP_PORT', 587, { infer: true }),
-      SMTP_USER: this.configService.get('SMTP_USER'),
-      SMTP_PASSWORD: this.configService.get('SMTP_PASSWORD'),
+      SES_HOST: this.configService.get('SES_HOST'),
+      SES_PORT: this.configService.get('SES_PORT', 587, { infer: true }),
+      SES_USER: this.configService.get('SES_USER'),
+      SES_EMAIL_SOURCE: this.configService.get('SES_EMAIL_SOURCE'),
+      SES_PASSWORD: this.configService.get('SES_PASSWORD'),
+      AWS_ACCESS_KEY: this.configService.get('AWS_ACCESS_KEY'),
+      AWS_SECRET_KEY: this.configService.get('AWS_SECRET_KEY'),
+      AWS_REGION: this.configService.get('AWS_REGION'),
+      AWS_API_VERSION: this.configService.get('AWS_API_VERSION'),
     };
   }
 }
