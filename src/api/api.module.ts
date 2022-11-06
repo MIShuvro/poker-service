@@ -10,7 +10,7 @@ import { join } from 'path';
 @Module({
   imports: [AppConfigModule,
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', './mail-templates'),   // <-- path to the static files
+      rootPath: join(__dirname, '..', 'mail-templates'),   // <-- path to the static files
     }),
     IndexModule, RabbitMQModule, PokerModule],
   controllers: [],
