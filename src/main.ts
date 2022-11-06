@@ -1,7 +1,7 @@
 require('dotenv').config({
   path: process.env.ENV_PATH,
 });
-
+import { join } from "path";
 import { NestFactory } from '@nestjs/core';
 import { ApiModule } from './api/api.module';
 import { Logger, ValidationPipe } from '@nestjs/common';
@@ -51,6 +51,7 @@ async function setupSwagger(app, port: number) {
 
 async function bootstrap() {
   const app = await NestFactory.create(ApiModule);
+
   let PORT = +process.env.PORT || 8080;
   app.enableVersioning();
   await setupSwagger(app, PORT);
